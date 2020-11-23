@@ -117,10 +117,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--algo",
         type=str,
-        default="random",
+        default="compatible",
         help="Choose an algo present in the algo folder",
     )
-    parser.add_argument("--loop", type=int, default=1, help="Number of games")
+    parser.add_argument("--loop", type=int, default=10, help="Number of games")
 
     args = parser.parse_args()
     main(what=args.what, algo=args.algo, loop=args.loop)

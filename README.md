@@ -14,7 +14,7 @@ Usage
 ```
 usage: yesmaster.py [-h] [--algo ALGO] [--loop LOOP] {play,auto}
 
-positional arguments:{play,auto}  play yourself or let's computer play
+positional arguments:{play,auto}  play yourself or let's computer playing
 
 optional arguments:
   -h, --help   show this help message and exit

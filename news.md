@@ -30,12 +30,12 @@ Pour rappel ou pour ceux qui ne connaîtrait pas ce classique, il faut découvri
 Dans nos parties, on trouve le code en 6 coups. Parfois 5 quand on a de la chance, parfois 7 quand on en manque.
 Au début, après un premier coup au hasard avec 4 couleurs différentes, on ne faisait que des coups compatibles avec les indications. Ensuite, intuitivement, on s'est mis à faire un deuxième coup avec les 4 couleurs que l'on avait pas encore mis au premier coup quite à ce que ce coup ne soit pas compatible avec le premier. Je me suis demandé quelle était la meilleure stratégie et surtout si nos 6 coups étaient dans la moyenne.
 
-Le code
+Code
 -------
 J'ai donc sorti mon éditeur de code favori et utilisé le langage le plus élégant au monde pour écrire un petit programme qui me permettrait de vérifier tout ça. Tout d'abord les bases, un petit [programme](https://github.com/matteli/yesmaster/blob/master/yesmaster/yesmaster.py) qui me permettait de jouer seul. Programme trivial, il a fallu juste que je trouve un moyen de vérifier la combinaison et de déterminer les blancs et rouges.
 Pour les rouges, c'est trivial, pour les blancs un petit peu moins. La méthode qui m'est venu a été de compter dans les deux codes (celui à trouver et celui de la tentative) le nombre de fois que chaque couleur était jouée. Pour chaque couleur, je prends la valeur minimale. J'additionne toutes ces valeurs minimales, ce qui me donne le nombre total de bonnes couleurs (bien ou mal placé). Je n'ai plus qu'à soustraire à ce total, le nombre de rouges et j'obtiens le nombre de blancs. [Voir def verify](https://github.com/matteli/yesmaster/blob/master/yesmaster/utils.py)
 
-Bien mais ce n'était pas l'objectif. J'ai mis en place la partie auto avec un premier algo qui tire au hasard des combinaisons jusqu'à ce qu'il trouve la bonne solution (il est tellement crétin qu'il peut tirer plusieurs fois la même combinaison). Résultat après quelques milliers de parties, le nombre de coups moyens converge gentiment vers 4000-4100 coups (ce qui correspond bien à 8^4 = 4096, arrangement de 4 couleurs parmi 8 avec remise). Ca permet de vérifier la loi des grands nombres qui est bien souvent faussement invoqué pour jouer à Mme Irma.
+Bien mais ce n'était pas l'objectif. J'ai mis en place la partie auto avec un premier algo qui tire au hasard des combinaisons jusqu'à ce qu'il trouve la bonne solution (il est tellement crétin qu'il peut tirer plusieurs fois la même combinaison). Résultat après quelques milliers de parties, le nombre de coups moyens converge gentiment vers 4000-4100 coups (ce qui correspond bien à 8^4 = 4096, arrangement de 4 couleurs parmi 8 avec remise). Ça permet de vérifier la loi des grands nombres qui est bien souvent faussement invoqué pour jouer à Mme Irma.
 
 [Deuxième algo](https://github.com/matteli/yesmaster/blob/master/yesmaster/algo/random_no_repeat.py), le même mais cette fois-ci il ne tire plus deux fois la même combinaison. Résultat : on semble converger cette fois-ci vers 2048 coups. Je suis bien incapable de le prouver. Afin d'améliorer les performances, j'ai dû stocker les combinaisons déjà faites sous forme d'arbre. [Voir def make_tree](https://github.com/matteli/yesmaster/blob/master/yesmaster/utils.py)
 
@@ -45,7 +45,7 @@ Puis, un [quatrième algo](https://github.com/matteli/yesmaster/blob/master/yesm
 
 Enfin, un [cinquième algo](https://github.com/matteli/yesmaster/blob/master/yesmaster/algo/compatible_4in1.py) ressemble beaucoup au troisième en obligeant le premier coup à jouer avec 4 couleurs différentes puis des coups compatibles.
 
-Les résultats
+Résultats
 -------------
 Je ne reviens pas sur les deux premiers algo.
 

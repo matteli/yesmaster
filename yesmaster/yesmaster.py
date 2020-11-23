@@ -3,6 +3,7 @@ from utils import *
 import argparse
 import time
 import importlib
+from __init__ import __version__
 
 
 def play():
@@ -110,17 +111,21 @@ def main(what, algo, loop):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Play or stat Mastermind")
+    parser = argparse.ArgumentParser(
+        prog="Yesmaster", description="Play or stat Mastermind"
+    )
     parser.add_argument(
         "what", choices=["play", "auto"], default="play", help="play or stat"
     )
     parser.add_argument(
+        "-a",
         "--algo",
         type=str,
         default="compatible",
         help="Choose an algo present in the algo folder",
     )
-    parser.add_argument("--loop", type=int, default=10, help="Number of games")
+    parser.add_argument("-l", "--loop", type=int, default=10, help="Number of games")
+    parser.add_argument("-v", "--version", action="version", version=__version__)
 
     args = parser.parse_args()
     main(what=args.what, algo=args.algo, loop=args.loop)

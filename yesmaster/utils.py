@@ -3,12 +3,12 @@ import random, copy
 colors = "ROGBYAPW"  # Red, Orange, Green, Blue, Yellow, grAy, Pink, White
 
 
-def make_dict(dic, depth, max_depth, end):
+def make_tree(dic, depth, max_depth, end):
     depth += 1
     if depth < max_depth:
         for c in colors:
             dic[c] = {}
-            dic[c] = make_dict(dic[c], depth, max_depth, end)
+            dic[c] = make_tree(dic[c], depth, max_depth, end)
     else:
         for c in colors:
             dic[c] = copy.deepcopy(end)
@@ -26,6 +26,19 @@ def random_code():
     code = ""
     for i in range(4):
         code += random.choice(colors)
+    return code
+
+
+def random_code_4_colors(except_colors=""):
+    if len(except_colors) > 4:
+        raise ValueError("except_colors must not exceed 4 colors.")
+    code = ""
+    for i in range(4):
+        while True:
+            c = random.choice(colors)
+            if c not in code and c not in except_colors:
+                break
+        code += c
     return code
 
 

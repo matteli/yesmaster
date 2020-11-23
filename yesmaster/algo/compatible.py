@@ -1,9 +1,9 @@
-from utils import make_dict, random_code, verify
+from utils import make_tree, random_code, verify
 
 
 def init():
     global test_dict, test_done
-    test_dict = make_dict({}, 0, 4, {"done": False, "good": 0, "bad": 0})
+    test_dict = make_tree({}, 0, 4, {"done": False, "good": 0, "bad": 0})
     test_done = []
 
 

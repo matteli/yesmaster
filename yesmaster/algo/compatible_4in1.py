@@ -1,18 +1,16 @@
-from utils import make_dict, random_code, verify
+from utils import make_tree, random_code, random_code_4_colors, verify
 
 
 def init():
     global test_dict, test_done
-    test_dict = make_dict({}, 0, 4, {"done": False, "good": 0, "bad": 0})
+    test_dict = make_tree({}, 0, 4, {"done": False, "good": 0, "bad": 0})
     test_done = []
 
 
 def get():
     global test_dict, test_done
     if len(test_done) == 0:
-        test = "ROGB"
-    elif len(test_done) == 1:
-        test = "YAPW"
+        test = random_code_4_colors()
     else:
         while True:
             test = random_code()

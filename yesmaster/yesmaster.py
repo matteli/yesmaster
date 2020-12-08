@@ -25,7 +25,7 @@ def play():
                         forbiden = True
         attempt += 1
 
-        good, bad = verify(test, code, code_dict)
+        good, bad = verify(test, code, code_dict=code_dict)
 
         print(str(good) + " good " + str(bad) + " bad\n")
         if good == 4:

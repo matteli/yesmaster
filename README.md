@@ -8,6 +8,7 @@ Yesmaster is a terminal mastermind game. It's possible to play normally or let's
 - compatible : play random but take in consideration the verification and play only code compatible with it
 - compatible_8in2 : play the two first code with 8 colors and after that play compatible
 - compatible_4in1 : play like compatible but the first must be 4 differents colors
+- one_step_ahead : play the move that has the highest expected elimination
 
 Usage
 -----

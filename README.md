@@ -24,8 +24,7 @@ optional arguments:
 ```
 Test your algorithm
 -------------------
-You can add your personnal algorithm with a python file in the algo directory (the name of the python file will be the name of the algo to call in the command line). 3 functions must be present :
-- init() : executed at the beginning of each game. Return nothing.
-- get() : executed for choosing the code. Must return a 4 letters string with letters among ROGBYAPW
-- report(test, good, bad) : executed with 3 arguments (test : the code that you push with get, good : the number of good colors at good place, bad : the number of good colors at wrong place). Return nothing.
+You can add your personnal algorithm with a python file in the algo directory (the name of the python file will be the name of the algo to call in the command line). 2 functions are mandatory in a class name Algo :
+- get(self) : executed for choosing the code. Must return a 4 letters string with letters among ROGBYAPW
+- report(self, test, good, bad) : executed with 3 arguments (test : the code that you pushed with get, good : the number of good colors at good place, bad : the number of good colors at wrong place). Return nothing.
 

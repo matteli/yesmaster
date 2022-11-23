@@ -1,22 +1,19 @@
 from utils import random_code, make_tree
 
+class Algo:
 
-def init():
-    global test_dict, test_done
-    test_dict = make_tree({}, 0, 4, False)
-    test_done = []
+    def __init__(self):
+        self.test_tree = make_tree({}, 0, 4, False)
+        self.test_done = []
 
+    def get(self):
+        while True:
+            test = random_code()
+            if self.test_tree[test[0]][test[1]][test[2]][test[3]] == False:
+                self.test_tree[test[0]][test[1]][test[2]][test[3]] = True
+                self.test_done.append(test)
+                break
+        return test
 
-def get():
-    global test_dict, test_done
-    while True:
-        test = random_code()
-        if test_dict[test[0]][test[1]][test[2]][test[3]] == False:
-            test_dict[test[0]][test[1]][test[2]][test[3]] = True
-            test_done.append(test)
-            break
-    return test
-
-
-def report(test, good, bad):
-    pass
+    def report(self, test, good, bad):
+        pass

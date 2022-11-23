@@ -4,6 +4,7 @@ class Algo:
 
     def __init__(self):
         self.test_tree = make_tree({}, 0, 4, {"done": False, "good": 0, "bad": 0})
+        self.test1 = ""
         self.test_done = []
 
     def loop(self):
@@ -27,7 +28,7 @@ class Algo:
     def get(self):
         if len(self.test_done) == 0:
             test = random_code_4_colors()
-            test1 = test
+            self.test1 = test
         elif len(self.test_done) == 1:
             t = self.test_done[0]
             gb = (
@@ -35,7 +36,7 @@ class Algo:
                 + self.test_tree[t[0]][t[1]][t[2]][t[3]]["bad"]
             )
             if gb < 4:
-                test = random_code_4_colors(except_colors=test1)
+                test = random_code_4_colors(except_colors=self.test1)
             else:
                 test = self.loop()
         else:

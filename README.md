@@ -24,7 +24,7 @@ optional arguments:
 ```
 Test your algorithm
 -------------------
-You can add your personnal algorithm with a python file in the algo directory (the name of the python file will be the name of the algo to call in the command line). A template file show how your algo must organized. 2 functions are mandatory in a class name Algo :
+You can add your personnal algorithm with a python file in the algo directory (the name of the python file will be the name of the algo to call in the command line). A template file shows you how your algo must be organized. Two functions are mandatory in a class name Algo :
 - get(self) : executed for choosing the code. Must return a 4 letters string with letters among ROGBYAPW
-- report(self, test, good, bad) : executed with 3 arguments (test : the code that you pushed with get, good : the number of good colors at good place, bad : the number of good colors at wrong place). Return nothing.
+- report(self, test, good, bad) : executed with 3 arguments (test : the code that you pushed with get, good : the number of goods colors at good place, bad : the number of goods colors at wrong place). Return nothing.
 

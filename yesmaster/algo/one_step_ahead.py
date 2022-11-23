@@ -93,28 +93,28 @@ def find_best_proposal(candidates, colors, nb, candidates_only):
         print("max_k is None: %s" % candidates)
     return max_k
 
-def init():
-    global candidates, colors, nb_slots, nb_tries
-    nb_slots = 4
-    colors = ['R', 'O', 'G', 'B', 'Y', 'A', 'P', 'W']
-    candidates = combinations(colors, nb_slots)
-    nb_tries = 0
 
-def get():
-    global candidates, colors, nb_slots, nb_tries
-    if nb_tries == 0:
-        random.shuffle(colors)
-        proposal = colors[:nb_slots]
-    elif len(candidates) <= 3:
-        proposal = find_best_proposal(candidates, colors, nb_slots, True)
+class Algo:
+
+  def __init__(self):
+    self.nb_slots = 4
+    self.colors = ['R', 'O', 'G', 'B', 'Y', 'A', 'P', 'W']
+    self.candidates = combinations(self.colors, self.nb_slots)
+    self.nb_tries = 0
+
+  def get(self):
+    if self.nb_tries == 0:
+        random.shuffle(self.colors)
+        proposal = self.colors[:self.nb_slots]
+    elif len(self.candidates) <= 3:
+        proposal = find_best_proposal(self.candidates, self.colors, self.nb_slots, True)
     else:
         # Note: The last False could be a parameter of the algorithm: whether to
         # limit ourselves to valid candidates only for the whole game.
-        proposal = find_best_proposal(candidates, colors, nb_slots, False)
-    nb_tries += 1
-    return proposal
+        proposal = find_best_proposal(self.candidates, self.colors, self.nb_slots, False)
+    self.nb_tries += 1
+    return "".join(proposal)
 
+  def report(self, proposal, good, misplaced):
+    self.candidates = [c for c in self.candidates if score_proposal(proposal, c) == (misplaced, good)]
 
-def report(proposal, good, misplaced):
-    global candidates
-    candidates = [c for c in candidates if score_proposal(proposal, c) == (misplaced, good)]

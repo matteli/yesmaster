@@ -48,13 +48,13 @@ def auto(algo, loop):
         code = random_code()
         code_dict = count_colors(code)
         attempt = 0
-        algo_module.init()
+        algo = algo_module.Algo()
         history_test = []
         while True:
-            test = algo_module.get()
+            test = algo.get()
             attempt += 1
             good, bad = verify(test=test, code=code, code_dict=code_dict)
-            algo_module.report(test, good, bad)
+            algo.report(test, good, bad)
             report = {"test": test, "good": good, "bad": bad}
             history_test.append(report)
             if good == 4:

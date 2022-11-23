@@ -1,36 +1,32 @@
 from utils import make_tree, random_code, verify
 
+class Algo:
 
-def init():
-    global test_dict, test_done
-    test_dict = make_tree({}, 0, 4, {"done": False, "good": 0, "bad": 0})
-    test_done = []
+    def __init__(self):
+        self.test_tree = make_tree({}, 0, 4, {"done": False, "good": 0, "bad": 0})
+        self.test_done = []
 
-
-def get():
-    global test_dict, test_done
-    while True:
-        test = random_code()
-        if test_dict[test[0]][test[1]][test[2]][test[3]]["done"] == False:
-            compatible = True
-            for t in test_done:
-                good, bad = verify(test, t)
-                if (
-                    good != test_dict[t[0]][t[1]][t[2]][t[3]]["good"]
-                    or bad != test_dict[t[0]][t[1]][t[2]][t[3]]["bad"]
-                ):
-                    test_dict[test[0]][test[1]][test[2]][test[3]]["done"] = True
-                    compatible = False
+    def get(self):
+        while True:
+            test = random_code()
+            if self.test_tree[test[0]][test[1]][test[2]][test[3]]["done"] == False:
+                compatible = True
+                for t in self.test_done:
+                    good, bad = verify(test, t)
+                    if (
+                        good != self.test_tree[t[0]][t[1]][t[2]][t[3]]["good"]
+                        or bad != self.test_tree[t[0]][t[1]][t[2]][t[3]]["bad"]
+                    ):
+                        self.test_tree[test[0]][test[1]][test[2]][test[3]]["done"] = True
+                        compatible = False
+                        break
+                if compatible:
                     break
-            if compatible:
-                break
-    return test
+        return test
 
-
-def report(test, good, bad):
-    global test_dict, test_done
-    test_dict[test[0]][test[1]][test[2]][test[3]]["good"] = good
-    test_dict[test[0]][test[1]][test[2]][test[3]]["bad"] = bad
-    test_dict[test[0]][test[1]][test[2]][test[3]]["done"] = True
-    test_done.append(test)
-    return
+    def report(self, test, good, bad):
+        self.test_tree[test[0]][test[1]][test[2]][test[3]]["good"] = good
+        self.test_tree[test[0]][test[1]][test[2]][test[3]]["bad"] = bad
+        self.test_tree[test[0]][test[1]][test[2]][test[3]]["done"] = True
+        self.test_done.append(test)
+        return

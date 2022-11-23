@@ -1,14 +1,13 @@
 from utils import random_code
 
+class Algo():
 
-def init():
-    pass
+    def __init__(self):
+        pass
 
+    def get(self):
+        test = random_code()
+        return test
 
-def get():
-    test = random_code()
-    return test
-
-
-def report(test, good, bad):
-    pass
+    def report(self, test, good, bad):
+        pass

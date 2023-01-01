@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "yesmaster"
-version = "3.0.0"
+version = "3.0.1"
 description = "Yesmaster is a terminal mastermind game. It's possible to play normally or let's play the computer with algorithm."
 authors = ["matteli <matthieu.nue@gmail.com>"]
 packages = [{include = "yesmaster"}]
 license = "MIT"
+readme = "README.md"
 repository = "https://github.com/matteli/yesmaster"
 
 [tool.poetry.dependencies]

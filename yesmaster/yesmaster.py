@@ -6,7 +6,7 @@ import importlib
 import sys
 
 
-__version__ = "3.0.0"
+__version__ = "3.0.1"
 
 
 def play():

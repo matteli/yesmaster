@@ -1,7 +1,7 @@
-from utils import make_tree, random_code, verify
+from ..utils import make_tree, random_code, verify
+
 
 class Algo:
-
     def __init__(self):
         self.test_tree = make_tree({}, 0, 4, {"done": False, "good": 0, "bad": 0})
         self.test_done = []
@@ -17,7 +17,9 @@ class Algo:
                         good != self.test_tree[t[0]][t[1]][t[2]][t[3]]["good"]
                         or bad != self.test_tree[t[0]][t[1]][t[2]][t[3]]["bad"]
                     ):
-                        self.test_tree[test[0]][test[1]][test[2]][test[3]]["done"] = True
+                        self.test_tree[test[0]][test[1]][test[2]][test[3]][
+                            "done"
+                        ] = True
                         compatible = False
                         break
                 if compatible:

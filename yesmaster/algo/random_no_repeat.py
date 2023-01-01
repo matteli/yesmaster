@@ -1,7 +1,7 @@
-from utils import random_code, make_tree
+from ..utils import random_code, make_tree
+
 
 class Algo:
-
     def __init__(self):
         self.test_tree = make_tree({}, 0, 4, False)
         self.test_done = []

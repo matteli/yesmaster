@@ -1,7 +1,7 @@
-from utils import random_code
+from ..utils import random_code
 
-class Algo():
 
+class Algo:
     def __init__(self):
         pass
 

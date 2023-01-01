@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-from utils import *
+from .utils import *
 import argparse
 import time
 import importlib
-from __init__ import __version__
+import sys
+
+
+__version__ = "3.0.0"
 
 
 def play():
@@ -40,10 +43,11 @@ def auto(algo, loop):
     min_attempt = 100000000
     history = []
     try:
-        algo_module = importlib.import_module("algo." + algo, package=None)
+        algo_module = importlib.import_module(".algo." + algo, package="yesmaster")
     except ModuleNotFoundError:
         print("Algo " + str(algo) + " is not implented.")
         return
+
     for game in range(loop):
         code = random_code()
         code_dict = count_colors(code)
@@ -110,7 +114,7 @@ def main(what, algo, loop):
         auto(algo, loop)
 
 
-if __name__ == "__main__":
+def run():
     parser = argparse.ArgumentParser(
         prog="Yesmaster", description="Play or stat Mastermind"
     )
@@ -127,5 +131,9 @@ if __name__ == "__main__":
     parser.add_argument("-l", "--loop", type=int, default=10, help="Number of games")
     parser.add_argument("-v", "--version", action="version", version=__version__)
 
-    args = parser.parse_args()
+    args = parser.parse_args(sys.argv[1:])
     main(what=args.what, algo=args.algo, loop=args.loop)
+
+
+if __name__ == "__main__":
+    run()

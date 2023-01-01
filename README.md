@@ -10,6 +10,14 @@ Yesmaster is a terminal mastermind game. It's possible to play normally or let's
 - compatible_4in1 : play like compatible but the first must be 4 differents colors
 - one_step_ahead : play the move that has the highest expected elimination
 
+Installation
+------------
+The program is available on [Pypi](https://pypi.org/project/yesmaster/).
+You need at least python 3.6 and you can use pipx to install it.
+```
+pipx install yesmaster
+```
+
 Usage
 -----
 ```

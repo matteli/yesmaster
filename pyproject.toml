@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "yesmaster"
+version = "3.0.0"
+description = "Yesmaster is a terminal mastermind game. It's possible to play normally or let's play the computer with algorithm."
+authors = ["matteli <matthieu.nue@gmail.com>"]
+packages = [{include = "yesmaster"}]
+license = "MIT"
+repository = "https://github.com/matteli/yesmaster"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+yesmaster="yesmaster.yesmaster:run"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
